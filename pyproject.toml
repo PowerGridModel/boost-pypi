@@ -1,0 +1,52 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libboost-headers"
+authors = [
+    { name = "Contributors to the Power Grid Model project", email = "powergridmodel@lfenergy.org" }
+]
+description = "Repackaging of libboost-headers distributed via PyPI"
+readme = "README.md"
+license = { text = "BSL-1.0" }
+classifiers = [
+    "Programming Language :: C++",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Boost Software License 1.0 (BSL-1.0)",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Topic :: File Formats",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "importlib-resources"
+]
+dynamic = [
+    "version"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
+
+[project.urls]
+Home-page = "http://www.boost.org/"
+GitHub = "https://github.com/boostorg/boost"
+Documentation = "https://www.boost.org/doc/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = true
+
+[tool.setuptools.dynamic]
+version = {file = "PYPI_VERSION"}
+
+[tool.setuptools.package-data]
+libboost_headers = ["include/**/*"]
